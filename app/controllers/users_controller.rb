@@ -1,9 +1,4 @@
-class UsersController < ApplicationController
-  
-  def show
-    @user = User.find_by({ "id" => params["id"] })
-  end
-  
+class UsersController < ApplicationController  
   def new
   end
 
