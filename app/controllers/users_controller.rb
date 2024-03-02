@@ -1,4 +1,8 @@
 class UsersController < ApplicationController  
+  def show
+    @user = User.find_by({ "id" => params["id"] })
+  end
+  
   def new
   end
 
@@ -11,7 +15,7 @@ class UsersController < ApplicationController
     # encrypt user's password before storing in database
     @user["password"] = BCrypt::Password.create(params["password"])
     @user.save
-    redirect_to "/"
+    redirect_to "/login"
   else
     flash["notice"] = "Email taken."
     redirect_to "/users/new"

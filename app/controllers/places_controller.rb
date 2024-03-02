@@ -6,7 +6,8 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find_by({ "id" => params["id"] })
-    @entries = Entry.where({ "place_id" => @place["id"] })
+    # filter entries by place and logged-in user
+    @entries = Entry.where({ "place_id" => @place["id"], "user_id" => session["user_id"]})
   end
 
   def new
@@ -23,5 +24,4 @@ class PlacesController < ApplicationController
   end
     redirect_to "/places"
   end
-
 end
