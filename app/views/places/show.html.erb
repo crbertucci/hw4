@@ -2,10 +2,15 @@
 
 <h1><%= @place["name"] %></h1>
 
-<h3><%= @current_user["username"] %></h3>
+<h3>Posts by <%= @current_user["username"] %></h3>
+
+<p>
+  <a href="/entries/new?place_id=<%= @place["id"] %>" class="btn btn-success">New Post</a>
+</p>
+
+<%end%>
 
 <div class="row">
-<h2>My Entries</h2>
 <% for entry in @entries %>
 <div class="col-md-3">
   <h3><%= entry["title"] %></h3>
@@ -14,11 +19,7 @@
   </div>
 <% end %>
 
-<p>
-  <a href="/entries/new?place_id=<%= @place["id"] %>" class="btn btn-success">New Entry</a>
-</p>
 
-<%end%>
 
 <p>
   <a href="/places">Back to All Places</a>
