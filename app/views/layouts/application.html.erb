@@ -23,18 +23,26 @@
   </head>
 
   <body>
-    <div class="container-md">
-      <%= flash["notice"] %>
 
-    <div>
-      <a href="/">Home</a>
+<nav class="navbar bg-primary mb-3" data-bs-theme="dark">
+  <div class="container-md">
+    <a class="navbar-brand" href="/">Tour de Taco</a>
+    <span class="navbar-text">
+      <a href="/"class="btn btn-secondary btn-sm">Home</a>
       <% if @current_user != nil %>
       <a href="/logout">Logout</a>
     <% else %>
-      <a href="/login">Login</a>
-      <a href="/users/new">Signup</a>
+      <a href="/login" class="btn btn-secondary btn-sm">Login</a>
+      <a href="/users/new"class="btn btn-secondary btn-sm">Signup</a>
       <%end%>
-    </div>
+    </span>
+  </div>
+</nav>
+  
+    <div class="container-md">
+      <%= flash["notice"] %>
+
+
 
     <%= yield %>    
     </div>
